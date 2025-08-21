@@ -6,10 +6,13 @@ repo_name: cj25-monumental-monsteras-team
 
 nav:
     - Home: index.md
-    - RPG_Text: platformer_input.md
+    - Platformer: platformer_input.md
     - keyboard_input: keyboard_input.md
     - color_mixer_input: color_mixer_input.md
     - DJ Keyboard: audio_style_input.md
+
+plugins:
+  - mkdocs-video
 
 theme:
   icon:
