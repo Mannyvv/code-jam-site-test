@@ -1,4 +1,4 @@
-# RPG_Text
+# Platformer_Input
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 

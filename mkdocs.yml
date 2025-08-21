@@ -1,9 +1,15 @@
 site_name: Dynamic Typing
-site_url: https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo
+site_url: https://mannyvv.github.io/code-jam-site-test/
 repo_url: https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo
 repo_name: cj25-monumental-monsteras-team
 
 
+nav:
+    - Home: index.md
+    - RPG_Text: platformer_input.md
+    - keyboard_input: keyboard_input.md
+    - color_mixer_input: color_mixer_input.md
+    - audio_style_input: audio_style_input.md
 
 theme:
   name: 
@@ -21,8 +27,23 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.path
-    
+    - content.tabs.link
+    - content.code.copy
+    - content.action.edit
+    - search.highlight
+    - search.share
+    - search.suggest
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
 
+    
+    
+  plugins:
+    - social
+    - typeset
 
 
 extra_css:
