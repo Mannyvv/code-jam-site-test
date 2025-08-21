@@ -1,0 +1,29 @@
+site_name: Dynamic Typing
+site_url: https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo
+repo_url: https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo
+repo_name: cj25-monumental-monsteras-team
+
+
+
+theme:
+  name: 
+    material
+  custom_dir: overrides  
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  palette:
+    scheme: dynamic_typing_colors
+  font:
+    text: Lexend Deca
+  features:
+    - navigation.instant  
+    ##Choose tabs up top or on the left side
+    - navigation.tabs
+    - navigation.sections
+    - navigation.path
+    
+
+
+
+extra_css:
+  - stylesheets/extra.css
