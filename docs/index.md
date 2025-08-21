@@ -13,7 +13,7 @@ We chose the NiceGUI framework to build our frontend, including the user interfa
 ### Using uv (recommended)
 The recommended way to run the project is using uv.
 
-If you do not have uv installed, see [https://docs.astral.sh/uv/getting-started/installation/](https://docs.astral.sh/uv/getting-started/installation/)
+If you do not have uv installed, see [the installation guide](https://docs.astral.sh/uv/getting-started/installation/).
 
 ```
 $ git clone https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo.git
