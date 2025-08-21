@@ -1,35 +1,42 @@
-# Welcome
+# Home
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+### \[Insert Logo Here\]
 
-## Commands
+## What is Dynamic Typing?
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+For the 2025 Annual Python Discord Codejam, the Monumental Monsteras put together the incredibly fun and totally not at all frustrating words per minute testing site, "Dynamic Typing". Dynamic Typing was built to fit the theme "wrong tool for the job", where the user is able to test their words per minute score, but they were *not* able to use their keyboard. Instead, the user has to choose how they would like to complete their typing test from the available options, all of which are very much the *wrong* tool for the job.
 
-## Project layout
+## Framework
+We chose the NiceGUI framework to build our frontend, including the user interface and the input methods, which were majorly ran on built in-modules of NiceGUI. We chose NiceGUI because of its easy-to-use modules that allow manipulation of almost any HTML element with CSS, as well as its seamless implementation of Tailwind CSS and the Quasar properties.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-# Welcome
+## Installation
+### Using uv (recommended)
+The recommended way to run the project is using uv.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+If you do not have uv installed, see https://docs.astral.sh/uv/getting-started/installation/
 
-## Commands
+```$ git clone https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo.git
+$ cd cj25-monumental-monsteras-team-repo.git
+$ uv run src/main.py
+```
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+### Without uv
+```$ git clone https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo.git
+$ cd cj25-monumental-monsteras-team-repo.git
+$ py -3.12 -m venv .venv
+$ py -m pip install .
+$ py src/main.py
+```
 
-## Project layout
+## Contributions
+Everyone - Laid out the idea and implementation.
+[Manny](https://github.com/Mannyvv) - Team leader, audio input method
+[Kam](https://github.com/afx8732) - Input view, input method protocol, wpm testing functionality and platformer input method
+[GigaGon](https://github.com/MeGaGiGaGon) - WASD keyboard input method
+[Skye](https://github.com/enskyeing) - User interface and general web design
+[Tarheel](https://github.com/jks85) - Color picker input method
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+
+
+
 
