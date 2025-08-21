@@ -1,180 +1,172 @@
-# DJ/Audio Component
+# __Audio Input Method__ 
+---
+## __Introduction__
 
-## THIS IS AI GENERATED (Use for refernce)
-This project demonstrates a Python application that leverages **NiceGUI** to create an interactive, modern UI while implementing a **custom input method interface**.  
-The theme of this project is **modularity, clarity, and maintainable design** — we want to show how even complex functionality like dynamic text input, media management, and custom styling can be broken down into clean, reusable components.
+This component is a playful, intentionally cumbersome typing test that fits into the larger "Wrong Tool for the Job" project.
 
-By separating concerns into files such as `color_style.py` and `input_method_proto.py`, this project highlights best practices in **software architecture**, including:
+It highlights the absurdity of using a vinyl record interface to type text. Users interact with the typing test by using the vinyl record controls — **play**, **pause**, **skip forward/backward**, and other buttons — to select characters.
 
-- **Separation of concerns** – UI logic, color styling, and input handling are in separate modules.  
-- **Scalability** – New input methods or UI components can be added with minimal changes.  
-- **Maintainability** – Centralized styles and structured callbacks reduce future debugging effort.
+When the user presses **play**, a song begins and characters are displayed in sequence as the music plays. Users watch the characters and, when they see the one they want, they press **record** to send it to the typing test component. Characters can be **lowercase letters**, **uppercase letters**, or **punctuation**, and the user can cycle through **three different tracks**, each corresponding to a type of character. This component turns a simple typing interaction into a quirky, musical, and humorously inefficient experience, while still connecting with the larger typing test system.
+
+
+## __User Interface__
+### Components
+- Intro
+- Buttons
+- Record
+- Letter chip
+- Overall Pic
+
+### Styling
+
+- `color_style.ColorStyle` — defines a consistent theming system for the app. 
+  
+---
+### Detailed Flow
+
+- User clicks a button on the record → triggers a play, pause, or skip action.  
+- Letter spinner updates asynchronously → new letter is displayed in the UI.  
+- `select_char()` fires when the record button is pressed → sends the current string of typed characters to the Typing Test Component via `TextUpdateCallback`.  
+- Typing Test Component updates the sentence display → shows which letters were typed correctly or incorrectly and tracks the user's position in the sentence.  
+- WPM/WPH is calculated only after the user reaches the end of the sentence with correct typing.  
+- UI updates → record animation and letter chip continue spinning, creating the “wrong tool for the job” experience.
+---
+## __Code__
+
+<!-- ##### Core Libraries & Classes
+
+This component uses a combination of a main framework, utility libraries, and interface classes. Below is a breakdown of the most important parts. -->
+
+#####Main Framework
+
+- <em>`NiceGUI` — provides web-based UI elements, layouts, and events, handling interactivity, buttons, audio controls, and visual updates for the spinning record and character spinner. NiceGUI components also allowed me to play music and sounds when needed.
+
+#####Utility Library
+
+- <em>`Asyncio` — used to create a timer so the vinyl record image can spin, the characters cycle through their sets, and buttons can be monitored for actions such as rewind, forward, pause, and play. Also used to play sounds when buttons are pressed.
+
+#####Interface Classes
+
+- <em>`input_method_proto.IInputMethod` — the interface that this component implements to connect with the typing test module.
+- <em>`TextUpdateCallback` — a function passed from the typing test module that allows this component to send selected characters back to the tester.
+     
+        def on_text_update(self, callback: TextUpdateCallback) -> None:
+            """Register a callback to be called whenever the text updates."""
+
+            Args:
+                callback (TextUpdateCallback): Function called with updated text.
+
+            
+            self._text_update_callback = callback
+
+
 
 ---
 
-## File Structure
-The structure of the project reflects its modular philosophy:
+### AudioEditor Component
 
-```
-/project_root
-│
-├── main.py                # Main application entry
-├── color_style.py         # Color styling definitions
-├── input_method_proto.py  # Input method interface
-├── static/                # Media and static files
-│   └── ...                # Images, CSS, JS
-└── README.md              # Project documentation
-```
+Main class for the “typing DJ” component that renders a spinning vinyl record and character spinner.  
 
-- `main.py` contains the core logic of the UI and application orchestration.  
-- `color_style.py` holds all color definitions, keeping the visual theme consistent.  
-- `input_method_proto.py` defines interfaces for input methods, promoting extensibility.  
-- `static/` holds all media assets, which are referenced dynamically in the app.  
+It interfaces with the typing test via `TextUpdateCallback` and manages the current character set including uppercase, lowercase, and punctuation.  
+
+The component handles audio playback for the main track, rewind, and fast-forward, while controlling spinning speed and direction with asyncio tasks.  
+
+It updates UI elements in real time, uses `ColorStyle` for consistent styling, and implements the `on_text_update` callback to communicate selected characters to the typing test.
 
 ---
 
-## Imports
 
-```python
-import asyncio
-import string
-from pathlib import Path
-from typing import override
+> Additional advice to aid users in achieving better outcomes.
 
-from nicegui import app, ui
+##More In Depth
 
-from color_style import ColorStyle
-from input_method_proto import IInputMethod, TextUpdateCallback
+- `cycle_char_select()` — Cycles between uppercase, lowercase, and punctuation character sets.  
+- `spin_continuous()` — Runs asynchronously to continuously rotate the vinyl record.  
+- `letter_spinner_task()` — Updates the character label asynchronously, cycling through the selected set.  
+- `start_spinning()` / `stop_spinning()` — Controls vinyl record rotation.  
+- `speed_boost()` — Temporarily increases spin speed for animations like fast-forward or rewind.  
+- `toggle_play_pause()` / `play_pause_handler()` — Handles play/pause logic for music and character spinner.  
+- `_select_letter_handler()` — Handles letter selection and triggers the text callback.  
+- `_delete_letter_handler()` — Deletes the last character in the user text.  
+- `_add_space_handler()` — Adds a space to the user text.  
+- `forward_3()` / `rewind_3()` — Skip multiple letters with accompanying sound effects and spin animations.  
+- `setup_buttons()` — Creates NiceGUI buttons and binds them to event handlers.
+
+```mermaid
+classDiagram
+  IInputMethod <|.. AudioEditorComponent
+
+  class AudioEditorComponent {
+    +__init__()
+    +create_intro_card() tuple[ui.card, ui.button]
+    +create_main_content() tuple[ui.column, ui.image, ui.chip, ui.row, ui.row]
+    +setup_buttons()
+    +cycle_char_select()
+    +spin_continuous()
+    +letter_spinner_task()
+    +start_spinning(clockwise: bool)
+    +stop_spinning()
+    +speed_boost(final_direction: int)
+    +toggle_play_pause()
+    +play_pause_handler()
+    +on_play()
+    +on_pause()
+    +play_rewind_sound()
+    +play_fast_forward_sound()
+    +forward_3()
+    +rewind_3()
+    -_select_letter_handler()
+    +start_audio_editor()
+    +on_text_update(callback: TextUpdateCallback)
+    +select_char(char: str)
+    -_delete_letter_handler(char: str)
+    -_add_space_handler(char: str)
+  }
+
+  class IInputMethod {
+    +on_text_update(callback: TextUpdateCallback)
+  }
+
 ```
 
-- `asyncio` allows asynchronous operations, crucial for responsive UI updates.  
-- `string` provides utility functions for text manipulation.  
-- `Path` is used for clean file and media management.  
-- `override` is a typing tool ensuring correct method overriding.  
-- `nicegui` is the framework enabling declarative UI creation.  
-- `ColorStyle` brings centralized styling, reinforcing the theme of consistency.  
-- `IInputMethod` and `TextUpdateCallback` implement a plug-and-play input system.  
 
-This import section highlights **how Python modules can be composed into a theme-driven architecture** — separating logic, UI, and styling for clarity and maintainability.
 
----
+### Theme - Wrong Tool For The Job
 
-## Color Styling
+- The `AudioEditorComponent` gets the job done, but it's the wrong tool for the task.  
+- Using record buttons for single-character selection is deliberately overkill.  
+- Audio feedback and animations create a multi-tasking, interactive environment.  
+- Despite this, the component is fully functional and integrates cleanly with the Typing Test Component via callbacks and modular imports.
 
-The project’s visual theme relies on `color_style.py`:
 
-```python
-class ColorStyle:
-    PRIMARY_COLOR = "#1ABC9C"
-    SECONDARY_COLOR = "#16A085"
-    BACKGROUND_COLOR = "#F0F0F0"
+<!-- ![Alt text](./assets/images/audio_input/demo_image.png) -->
+
+
+```mermaid
+graph LR
+  A[Start] --> B{Play/Pause Pressed?};
+
+  B -->|No| A; 
+  B -->|Yes - Play| C[Letter Spinner Active];
+  B -->|Yes - Pause| F[Spinner Paused];
+
+  C --> D{Desired Letter Visible?};
+  D -->|No - Not yet| E[Wait/Adjust Spinner];
+  E --> G{Adjust Spinner?};
+  G -->|Fast Forward| C;
+  G -->|Rewind| C;
+  G -->|Change Character Set| C;
+  G -->|No Adjustment / Wait| C;
+
+  D -->|Yes - Record| H[Record Button Pressed];
+  H --> I[Character Added to Text];
+  I --> J{More Characters Needed?};
+
+  F --> B; 
+
+  J -->|Yes| C;
+  J -->|No| K[Finish Typing Session];
 ```
 
-**Why it matters:** By defining colors here, we:
 
-- Ensure **brand consistency** across the UI.  
-- Make future theming adjustments **simple and centralized**.  
-- Reinforce the **modularity theme**, separating style from logic.  
-
-Even small aesthetic choices like color selection are intentionally tied to the theme of **clarity and readability** in the UI.
-
----
-
-## Media Files
-
-Media files are served through NiceGUI:
-
-```python
-media = Path("./static")
-app.add_media_files("/media", media)
-```
-
-- This setup maps `/static` resources to `/media` in the URL.  
-- Any image, video, or asset can now be dynamically loaded into UI components.  
-- From a theme perspective, this supports **dynamic, media-rich interfaces** without cluttering code.
-
----
-
-## Input Method Interface
-
-The `input_method_proto.py` interface demonstrates **extensibility**:
-
-```python
-class IInputMethod:
-    def __init__(self):
-        pass
-
-    def update_text(self, callback: TextUpdateCallback):
-        """Registers a callback for text updates."""
-        pass
-
-class TextUpdateCallback:
-    def __call__(self, text: str):
-        """Handles updated text."""
-        pass
-```
-
-**Key points:**
-
-- The interface allows multiple input methods to be implemented interchangeably.  
-- Using callbacks separates input logic from UI rendering.  
-- This directly supports the theme of **modular and reactive design**.  
-
-By decoupling input handling from the interface, we can easily add voice input, custom keyboards, or AI-assisted text features without changing the core UI.
-
----
-
-## Main Application
-
-```python
-COLOR_STYLE = ColorStyle()
-
-class MyApp(IInputMethod):
-    def __init__(self):
-        self.text = ""
-
-    def initial_draw(self) -> None:
-        """Draw the map for the first time."""
-        with ui.element() as self.map_container:
-            ui.label("Hello, World!")
-
-    def update_text(self, callback: TextUpdateCallback):
-        self.text = "Updated"
-        callback(self.text)
-```
-
-- `initial_draw()` creates the UI elements declaratively.  
-- `update_text()` triggers callbacks to update text dynamically.  
-- The combination of **NiceGUI’s declarative UI** and a **callback-driven input system** highlights how the project integrates **reactivity and modularity**, keeping the theme intact.  
-
-Even this small snippet demonstrates how **maintainable, theme-aligned code** is achieved through separation of concerns.
-
----
-
-## Running the App
-
-1. Install dependencies:
-```bash
-pip install nicegui
-```
-
-2. Run the application:
-```bash
-python main.py
-```
-
-3. Open a browser at `http://localhost:8080` to see the interactive UI.
-
-This simple flow ensures the app is **easy to deploy and test**, aligning with the theme of **clarity and accessibility**.
-
----
-
-## Notes and Takeaways
-
-- Modularity is the core theme — logic, UI, styling, and assets are all separated.  
-- Callbacks and interfaces promote **flexibility** and future extensibility.  
-- Centralized styling reinforces **visual consistency**.  
-- The project demonstrates how **Python, NiceGUI, and clean architecture** can combine to produce maintainable, theme-driven applications.  
-
-This documentation should help any developer understand **not just what the code does, but why it’s structured this way**, reflecting the underlying design philosophy.
-
+#Demo
