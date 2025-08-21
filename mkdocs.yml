@@ -3,6 +3,10 @@ site_url: https://mannyvv.github.io/code-jam-site-test/
 repo_url: https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo
 repo_name: cj25-monumental-monsteras-team
 
+plugins:
+  - mkdocs-video:
+      is_video: True
+      video_autoplay: False
 
 nav:
     - Home: index.md
