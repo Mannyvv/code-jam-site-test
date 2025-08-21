@@ -3,13 +3,20 @@ site_url: https://mannyvv.github.io/code-jam-site-test/
 repo_url: https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo
 repo_name: cj25-monumental-monsteras-team
 
+plugins:
+  - mkdocs-video:
+      is_video: True
+      video_autoplay: False
 
 nav:
     - Home: index.md
-    - RPG_Text: platformer_input.md
-    - keyboard_input: keyboard_input.md
+    - WASD Input: keyboard_input.md
+    - Platformer: platformer_input.md
     - color_mixer_input: color_mixer_input.md
     - DJ Keyboard: audio_style_input.md
+
+plugins:
+  - mkdocs-video
 
 theme:
   icon:
@@ -48,3 +55,12 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
