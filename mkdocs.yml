@@ -9,9 +9,11 @@ nav:
     - RPG_Text: platformer_input.md
     - keyboard_input: keyboard_input.md
     - color_mixer_input: color_mixer_input.md
-    - audio_style_input: audio_style_input.md
+    - DJ Keyboard: audio_style_input.md
 
 theme:
+  icon:
+    repo: fontawesome/brands/github
   name: 
     material
   custom_dir: overrides  
@@ -36,15 +38,6 @@ theme:
     - navigation.footer
     - navigation.indexes
     - navigation.sections
-    - navigation.tabs
-    - navigation.tabs.sticky
-
-    
-    
-  plugins:
-    - social
-    - typeset
-
 
 extra_css:
   - stylesheets/extra.css
