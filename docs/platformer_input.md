@@ -16,7 +16,8 @@ which is embedded into the actual page, the physics simulation
 (`platformer_simulation.py`), which takes the user's input and returns
 the new positions with gravity and collision, and the renderer
 (`platformer_scene_cmp.py`), which is a component that renders the scene
-and player.
+and player. There's also the constants file (`platformer_constants.py`)
+which is most of the constants throughout the files.
 
 ### Main component
 Adds the renderer component and passes messages between the simulation
@@ -39,3 +40,10 @@ to where the player is.
 > individual HTML element. This was super slow, and crashed the app at
 > speeds of around 30 FPS or higher. The new method is both a lot
 > faster and a lot simpler!
+
+### Constants file
+The only interesting thing here is the world definition. The initial
+scene is defined as a triple-quoted multiline string where `#` is a
+block, spaces are air, and anything else are letters. There's also a
+function which transforms the scene into a two-dimensional array with
+each character as a cell.
