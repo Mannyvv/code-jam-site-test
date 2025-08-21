@@ -13,15 +13,17 @@ We chose the NiceGUI framework to build our frontend, including the user interfa
 ### Using uv (recommended)
 The recommended way to run the project is using uv.
 
-If you do not have uv installed, see https://docs.astral.sh/uv/getting-started/installation/
+If you do not have uv installed, see [https://docs.astral.sh/uv/getting-started/installation/](https://docs.astral.sh/uv/getting-started/installation/)
 
-```$ git clone https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo.git
+```
+$ git clone https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo.git
 $ cd cj25-monumental-monsteras-team-repo.git
 $ uv run src/main.py
 ```
 
 ### Without uv
-```$ git clone https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo.git
+```
+$ git clone https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo.git
 $ cd cj25-monumental-monsteras-team-repo.git
 $ py -3.12 -m venv .venv
 $ py -m pip install .
@@ -30,10 +32,15 @@ $ py src/main.py
 
 ## Contributions
 Everyone - Laid out the idea and implementation.
+
 [Manny](https://github.com/Mannyvv) - Team leader, audio input method
+
 [Kam](https://github.com/afx8732) - Input view, input method protocol, wpm testing functionality and platformer input method
+
 [GigaGon](https://github.com/MeGaGiGaGon) - WASD keyboard input method
+
 [Skye](https://github.com/enskyeing) - User interface and general web design
+
 [Tarheel](https://github.com/jks85) - Color picker input method
 
 
