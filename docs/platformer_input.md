@@ -7,7 +7,7 @@ type a letter, jump and bump your head on one of the letter tiles -- it
 will input the letter. Note that every time you jump, it inverts the
 capitalization of the next letter.
 
-![type:video](videos/platformer-tutorial.mp4)
+![type:video](assets/platformer-tutorial.mp4)
 
 ## How it works
 
