@@ -35,7 +35,7 @@ Everyone - Laid out the idea and implementation.
 
 [Manny](https://github.com/Mannyvv) - Team leader, Audio Input Method
 
-[Kam](https://github.com/afx8732) - Input view, input method protocol, wpm testing functionality and platformer input method
+[Kam](https://github.com/afx8732) - Input View, Input Method Protocol, WPM Testing Functionality, and Platformer Input Method
 
 [GigaGon](https://github.com/MeGaGiGaGon) - WASD keyboard input method, project setup, input method configuration
 
