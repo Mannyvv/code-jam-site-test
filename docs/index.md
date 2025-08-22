@@ -41,7 +41,7 @@ Everyone - Laid out the idea and implementation.
 
 [Skye](https://github.com/enskyeing) - User Interface and General Web Design
 
-[Tarheel](https://github.com/jks85) - Color picker input method
+[Tarheel](https://github.com/jks85) - Color Picker Input Method
 
 
 
