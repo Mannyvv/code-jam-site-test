@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://mannyvv.github.io/code-jam-site-test/</loc>
+         <lastmod>2025-08-22</lastmod>
+    </url>
+    <url>
+         <loc>https://mannyvv.github.io/code-jam-site-test/audio_style_input/</loc>
+         <lastmod>2025-08-22</lastmod>
+    </url>
+    <url>
+         <loc>https://mannyvv.github.io/code-jam-site-test/color_mixer_input/</loc>
+         <lastmod>2025-08-22</lastmod>
+    </url>
+    <url>
+         <loc>https://mannyvv.github.io/code-jam-site-test/core/</loc>
+         <lastmod>2025-08-22</lastmod>
+    </url>
+    <url>
+         <loc>https://mannyvv.github.io/code-jam-site-test/keyboard_input/</loc>
+         <lastmod>2025-08-22</lastmod>
+    </url>
+    <url>
+         <loc>https://mannyvv.github.io/code-jam-site-test/platformer_input/</loc>
+         <lastmod>2025-08-22</lastmod>
+    </url>
+</urlset>

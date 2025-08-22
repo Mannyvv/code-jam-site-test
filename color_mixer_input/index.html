@@ -1,0 +1,859 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mannyvv.github.io/code-jam-site-test/color_mixer_input/">
+      
+      
+        <link rel="prev" href="../platformer_input/">
+      
+      
+        <link rel="next" href="../audio_style_input/">
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Color Picker - Dynamic Typing</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend+Deca:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Lexend Deca";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="dynamic_typing_colors" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#color-mixer-input-method" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Dynamic Typing" class="md-header__button md-logo" aria-label="Dynamic Typing" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dynamic Typing
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Color Picker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cj25-monumental-monsteras-team
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../core/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Core
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../keyboard_input/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  WASD Input
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../platformer_input/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Platformer
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Color Picker
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../audio_style_input/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  DJ Keyboard
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Dynamic Typing" class="md-nav__button md-logo" aria-label="Dynamic Typing" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Dynamic Typing
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cj25-monumental-monsteras-team
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keyboard_input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WASD Input
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../platformer_input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Platformer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Color Picker
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Color Picker
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Demo
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio_style_input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DJ Keyboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Demo
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/Mannyvv/cj25-monumental-monsteras-team-repo/edit/master/docs/color_mixer_input.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<div><h1 id="color-mixer-input-method">Color Mixer Input Method</h1>
+<h2 id="intro"><strong>Intro</strong></h2>
+<p>The <code>Color Picker</code> page offers the user a frustrating typing interface, possibly triggering bouts of synesthesia. Users
+are tasked with typing a randomly generated phrase, but first they have to find the letters...</p>
+<h2 id="user-demo"><strong>User Demo</strong></h2>
+<p>Below is a brief demo of how a user may interact with the page. </p>
+<h1 id="_1"><div class="video-container"><video style="position:relative;width:100%;height:22.172vw" muted controls alt="type:video"><source src="../assets/images/color_input/Color_Picker_Demo.mp4" type="video/mp4"></source></video></div></h1>
+<p>The first few user inputs are described below:</p>
+<ol>
+<li>User clicks the spectrum in a region corresponding to the color <code>lime</code>, which outputs the letter <code>l</code></li>
+<li>User toggles the CAPS LOCK on. Note that this does not capitalize the L.</li>
+<li>User confirms the letter L</li>
+<li>Note that <code>l</code> is highlighted in red in the target text since it is the incorrect character</li>
+<li>The user clicks black to input backspace and remove the character <code>l</code></li>
+<li>The user selects <code>lime</code> again which now inputs <code>L</code>.</li>
+<li>The user confirms the input</li>
+<li>The user changes the color hues using the spectrum meter</li>
+<li>The user removes the <code>CAPS LOCK</code>, selects <code>orange</code>, then confirms the letter <code>o</code></li>
+</ol>
+<h2 id="main-ui">Main UI</h2>
+<p>Users will see the page below:</p>
+<p><a class="glightbox" href="../assets/images/color_input/Color_Picker_Full_Page.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../assets/images/color_input/Color_Picker_Full_Page.png"></a></p>
+<h3 id="typing-with-the-color-mixer">Typing with the Color Mixer</h3>
+<h1 id="_2"><a class="glightbox" href="../assets/images/color_input/Color_Picker_Mixer_Default.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../assets/images/color_input/Color_Picker_Mixer_Default.png"></a></h1>
+<p>The color mixer is the main keyboard. Users can access all 26 letters, backspace, and space by clicking a color. Special
+characters and capital letters are accessible via the buttons to the right of the color mixer. The mixer panel displays 
+color values in hexadecimal or (Red,Green,Blue). See the image below.</p>
+<h1 id="_3"><a class="glightbox" href="../assets/images/color_input/Color_Picker_Full_Color_Hex.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../assets/images/color_input/Color_Picker_Full_Color_Hex.png"></a></h1>
+<h1 id="_4"><a class="glightbox" href="../assets/images/color_input/Color_Picker_Full_Color_RGB.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../assets/images/color_input/Color_Picker_Full_Color_RGB.png"></a></h1>
+<blockquote>
+<p>Colors correspond to intuitive letters where possible, but some letters are hard to find...</p>
+</blockquote>
+<hr>
+<h3 id="more-on-typing">More on Typing</h3>
+<hr>
+<h4 id="letters">Letters</h4>
+<p>In order to type a <strong>letter</strong> the user</p>
+<ol>
+<li>Clicks a color on the color palette</li>
+<li>Clicks the <strong>CONFIRM LETTER</strong> button</li>
+</ol>
+<blockquote>
+<p><strong>Letters will not appear in the target output prior to confirmation!!!</strong></p>
+</blockquote>
+<h4 id="special-characters">Special Characters</h4>
+<ul>
+<li>To type the special characters <code>. ! , ?</code> press the corresponding button. </li>
+<li>The <code>CAPS LOCK</code> switch controls letter case, which the user can toggle. It defaults to the off position (white) and 
+turns on (blue) when clicked.</li>
+</ul>
+<h4 id="more-details">More Details</h4>
+<p>The first letter of the selected color determines the selected letter. <strong>Black</strong> and <strong>white</strong> correspond to <strong>backspace</strong> 
+and <strong>space</strong> inputs, respectively. </p>
+<p><em>Letters</em> must be confirmed using the <strong>CONFIRM LETTER</strong> button. Special characters, <em>backspace</em>,and <em>space</em> inputs will 
+automatically display in the target output.</p>
+<h3 id="help-text">Help Text</h3>
+<p>Upon clicking a color, the user sees <em>the name of the color selected and the corresponding letter</em> (see image below). 
+This information is displayed on the right side of the color panel, above the special character buttons. This text is
+meant to aid the user. Users must confirm letters before they are officially typed. Special characters are automatically 
+confirmed and displayed, including space and backspace inputs. </p>
+<p>In the image below the user has clicked on the color <em>fuchsia</em> which corresponds to the letter f.</p>
+<p><a class="glightbox" href="../assets/images/color_input/Color_Picker_User_Help_Text.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../assets/images/color_input/Color_Picker_User_Help_Text.png"></a></p>
+<blockquote>
+<p>Clicking <code>HEX</code> or <code>RGB</code> in the header above changes whether the color value displays as a hex code or as 
+Red-Green-Blue color intensities. This does not affect the color name display text.</p>
+</blockquote>
+<hr>
+<h3 id="more-on-the-color-mixer">More on the Color Mixer</h3>
+<hr>
+<p>The color mixer contains three modes. <em>Spectrum</em>, <em>Tune</em>, and <em>Palette</em>. The image above displays Spectrum mode, which 
+is the default mode.</p>
+<h4 id="spectrum">Spectrum</h4>
+<p>Users selects colors by clicking on the map. Users can adjust the spectrum meter to access various hues. Black and white 
+are accessible on all levels. </p>
+<h4 id="tune">Tune</h4>
+<p>Users select colors by adjusting the intensities of Red, Green, and Blue. The values can be adjusted by dragging the bar
+for a particular color, or by typing an integer (0 to 255 inclusive). The Tuner icon is circled in orange
+below. Click the icon to switch to this view mode.</p>
+<h1 id="_5"><a class="glightbox" href="../assets/images/color_input/Color_Picker_Mixer_Tuner.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../assets/images/color_input/Color_Picker_Mixer_Tuner.png"></a></h1>
+<h4 id="palette">Palette</h4>
+<p>Users select colors by clicking within the color palette. The Palette icon is circled in orange in the image below. 
+Click it to switch to this view mode.</p>
+<h1 id="_6"><a class="glightbox" href="../assets/images/color_input/Color_Picker_Mixer_Palette.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../assets/images/color_input/Color_Picker_Mixer_Palette.png"></a></h1>
+<blockquote>
+<p>Note: Spectrum mode is recommended.</p>
+</blockquote>
+<h3 id="targets-statistics-and-cues">Targets, statistics, and cues</h3>
+<p>The target sentence is displayed in green text. The top of the page also displays a timer and 
+typing statistics. The timer begins when the first input is confirmed. Users receive visual clues indicating typing 
+accuracy. Correct inputs are highlighted in green while incorrect inputs are highlighted in red. See the two images 
+below.</p>
+<h1 id="_7"><a class="glightbox" href="../assets/images/color_input/Typing_Stats.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../assets/images/color_input/Typing_Stats.png"></a></h1>
+<h1 id="_8"><a class="glightbox" href="../assets/images/color_input/Typing_Accuracy_Signals.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="../assets/images/color_input/Typing_Accuracy_Signals.png"></a></h1>
+<hr>
+<h2 id="implementation"><strong>Implementation</strong></h2>
+<hr>
+<p>The color input page was created by implementing the class <code>ColorInputComponent</code>. </p>
+<p>The <code>niceGUI</code> framework was beneficial in implementing the page and class, especially in constructing the page layout.
+The color mixer, CAPS LOCK, and special character elements were all created using functionality native to <code>niceGUI</code>. 
+In particular, the color-mixer came from the <code>Quasar color-picker</code> component. Color-picker properties were tweaked to 
+optimize the page, for example ensuring that the color picker did not minimize. However, many important features were 
+readily available. Further styling of the page elements was achieved using standard <code>CSS</code> and <code>Tailwind</code> properties.</p>
+<p>The class consists of 13 methods used to construct the page, and an additional method, <code>color_input_page</code> that was used 
+for testing the class separately from the main program.</p>
+<p>The class <code>__init__</code> method sets various attributes or performs methods needed to build the page, track user inputs, and
+map colors to text. This includes but is not limited to</p>
+<ul>
+<li>a callback attribute allowing the class to interface with the WPM Tester class</li>
+<li>the current color selected by the user</li>
+<li>the current character selected by the user</li>
+<li>the character confirmed by the user</li>
+<li>ui elements (e.g. color picker and character buttons)</li>
+<li>a color dictionary mapping colors names to unique letters or inputs</li>
+</ul>
+<p>In particular, the callback attribute plays a central role in the construction of the class. Rather than using <code>ui.page</code>
+decorators to generate individual classes, the project was designed to allow all input methods to work through the WPM
+tester. This was achieved using the <code>on_text_update</code> method which allowed the WPM tester to communicate with the class
+whenever text should be updated. Implementing the <code>on_text_update</code> method ensured that the <code>ColorInputComponent</code>
+satisfied the requirements of the protocol defined in <code>input_method_proto.py</code>. As previously discussed implementing the
+specific page methods as protocols allowed for greater cohesion across the project.</p>
+<p>The code handles user click events and establishes the backend logic necessary to map colors to text. For each clickable
+page element the class contains uses custom <code>handler</code> and <code>update</code> methods to update the backend and page state after a 
+user click. The <code>update_helper_text</code> and <code>update_confirmation_text</code> methods serve as helpers to the 
+<code>special_character_handler</code>, <code>confirm_letter_handler</code>, <code>color_handler</code>, and <code>shift_handler</code> methods. </p>
+<p>The methods <code>create_ui_content</code> and <code>setup_ui_buttons</code> set up the page layout and button positions, and create the 
+specific UI elements necessary for typing (e.g. color mixer, special character buttons).</p>
+<p>The <code>find_closest_member</code> method is an important backend functions. Each of the 26 letters, backspace, and space map 
+to a unique color. This information was stored in the aforementioned dictionary attribute, which contained 28 items. 
+The RGB/hex code structure permits the user to select up to 16^6, or nearly 16.8 million colors. The 
+<code>find_closet_member</code> method maps every possible hex code color to one of the 28 colors in the dictionary. Colors were 
+mapped to the "closest" color in the dictionary using their RGB coordinates and the Euclidean distance metric. The class
+contains two other static methods that serve as helper functions to <code>find_closest_member</code>. The method <code>hex_to_rgb</code> 
+converts hex_codes to a 3-tuple of RGB values, while <code>color_dist</code> uses the RGB tuples to compute the distance between 
+two colors</p>
+<p>The class also uses the <code>string</code> library in base python for easy access to ASCII characters.</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../platformer_input/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Platformer">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Platformer
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../audio_style_input/" class="md-footer__link md-footer__link--next" aria-label="Next: DJ Keyboard">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                DJ Keyboard
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.path", "content.tabs.link", "content.code.copy", "content.action.edit", "search.highlight", "search.share", "search.suggest", "navigation.footer", "navigation.indexes", "navigation.sections"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
