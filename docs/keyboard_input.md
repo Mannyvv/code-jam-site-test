@@ -1,51 +1,24 @@
-# Platformer_Input
+# WASD Input
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+This input method is a parody of the inconvenience of text entry in RPG Maker games. Naviage around an on-screen keyboard using wasd + space or arrow keys + enter.
 
-## Commands
+## Playthrough video
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+![type:video](./assets/wasd_playthrough.mp4)
 
-## Project layout
+## Implementation Details
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-# RPG_Text
+The keys on the keyboard are stored as a tuple of strings, which must must be rectangular (all strings mut be the same `len`).
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+```python
+KEYBOARD_KEYS: tuple[str, ...] = (
+    "ABCDEFGabcdefg",
+    "HIJKLMNhijklmn",
+    "OPQRSTUopqrstu",
+    "VWXYZ. vwxyz!\N{SYMBOL FOR BACKSPACE}",
+)
+```
 
-## Commands
+`\N{SYMBOL FOR BACKSPACE}` is hard-coded to act as backspace instead of entering the literal character.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-# RPG_Text
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Functionallity is implemented using a keyboard event hook through `ui.keyboard(on_key=self.handle_key)`
