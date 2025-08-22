@@ -10,14 +10,17 @@ When the user presses **play**, a song begins and characters are displayed in se
 
 
 ## __User Interface__
-### Components
-Starting Page
-![image](./assets/images/audio_input/intro.png)
-Initial Setup
-![image](./assets/images/audio_input/setup.png) <br>
-Buttons<br>
-![image](./assets/images/audio_input/buttons.png)<br>
-Letter Pill<br>
+###Starting Page
+![image](./assets/images/audio_input/intro.png){ style="max-width:80%;height:auto;"}<br>
+
+
+###Initial Setup
+![image](./assets/images/audio_input/setup.png){ style="max-width:80%;height:auto;"} <br>
+
+###Buttons<br>
+![image](./assets/images/audio_input/buttons.png){ style="max-width:80% height:auto;"}<br>
+
+###Letter Pill<br>
 ![image](./assets/images/audio_input/letter.png)
 
 ### Styling
@@ -35,15 +38,23 @@ Letter Pill<br>
 - UI updates → record animation and letter chip continue spinning, creating the “wrong tool for the job” experience.
 ---
 ## __Demo__
-Button Usage
+
+<figure markdown="span">
 ![type:gif](./assets/images/audio_input/button_usage.gif)
+  <figcaption>Button Usage</figcaption>
+</figure>
 
-Complete a Sentence
+
+<figure markdown="span">
 ![type:gif](./assets/images/audio_input/completed.gif)
+ <figcaption>Complete a Sentence</figcaption>
+</figure>
 
-Sound Effects - __Press Play!__
+<figure markdown="span">
 ![type:video](./assets/images/audio_input/with_sound.mp4)
-> Unmute for best experience
+ <figcaption>Sound Effects - Play and Turn On Sound🔊!</figcaption>
+</figure>
+
 ---
 
 ## __Code__ 
