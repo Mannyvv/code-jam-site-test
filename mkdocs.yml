@@ -10,6 +10,7 @@ plugins:
 
 nav:
     - Home: index.md
+    - Core: core.md
     - WASD Input: keyboard_input.md
     - Platformer: platformer_input.md
     - color_mixer_input: color_mixer_input.md
