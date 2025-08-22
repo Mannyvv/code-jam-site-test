@@ -2,7 +2,7 @@
 ---
 ## __Introduction__
 
-This component is a fun and kind of annoying typing test. It works and gets the job one, but it definitely is the wrong tool for the job. Fitting right into the code jam theme of this year.
+This component is a fun and kind of annoying typing test. It works and gets the job done, but it definitely is the wrong tool for the job. Fitting right into the code jam theme of this year.
 
 It highlights the absurdity of using a vinyl record interface to type text. Users interact with the typing test by using the vinyl record controls like **play**, **pause**, **skip forward/backward**, and other buttons to select characters.
 
@@ -130,29 +130,10 @@ classDiagram
 ```
 
 
-Logic Flow
-```mermaid
-graph LR
-  A[Start] --> B{Play/Pause Pressed?};
+Logic Flow 
 
-  B -->|No| A; 
-  B -->|Yes - Play| C[Letter Spinner Active];
-  B -->|Yes - Pause| F[Spinner Paused];
 
-  C --> D{Desired Letter Visible?};
-  D -->|No - Not yet| E[Wait/Adjust Spinner];
-  E --> G{Adjust Spinner?};
-  G -->|Fast Forward| C;
-  G -->|Rewind| C;
-  G -->|Change Character Set| C;
-  G -->|No Adjustment / Wait| C;
-
-  D -->|Yes - Record| H[Record Button Pressed];
-  H --> I[Character Added to Text];
-  I --> J{More Characters Needed?};
-
-  F --> B; 
-
-  J -->|Yes| C;
-  J -->|No| K[Finish Typing Session];
-```
+<figure markdown="span">
+![image](./assets/images/audio_input/diagram.png){ style="max-width:100%;height:auto;"}
+<figcaption>(Click to Englarge)</figcaption>
+</figure>
