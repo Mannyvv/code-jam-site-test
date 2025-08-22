@@ -25,8 +25,8 @@ The four input methods are built as subclasses of the `IInputMethod` protocol wi
 ## WPM Testing Page
 The Words Per Minute (WPM) testing page is initialized in `wpm_tester.py`. This creates a general user interface frame that the input view and the input method are injected into and displayed.
 
-![image](./assets/images/core/platform.png){ style="max-width:80%;height:auto;"}
 ![image](./assets/images/core/keyboard.png){ style="max-width:80%;height:auto;"}
+![image](./assets/images/core/platform.png){ style="max-width:80%;height:auto;"}
 ![image](./assets/images/core/color.png){ style="max-width:80%;height:auto;"}
 ![image](./assets/images/core/audio.png){ style="max-width:80%;height:auto;"}
 
