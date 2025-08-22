@@ -39,7 +39,7 @@ Everyone - Laid out the idea and implementation.
 
 [GigaGon](https://github.com/MeGaGiGaGon) - WASD Keyboard Input Method, Project Setup, Input Method Configuration
 
-[Skye](https://github.com/enskyeing) - User interface and general web design
+[Skye](https://github.com/enskyeing) - User Interface and General Web Design
 
 [Tarheel](https://github.com/jks85) - Color picker input method
 
