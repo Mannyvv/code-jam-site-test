@@ -2,20 +2,23 @@
 ---
 ## __Introduction__
 
-This component is a playful, intentionally cumbersome typing test that fits into the larger "Wrong Tool for the Job" project.
+This component is a fun and kind of annoying typing test. It works and gets the job one, but it definitely is the wrong tool for the job. Fitting right into the code jam theme of this year.
 
-It highlights the absurdity of using a vinyl record interface to type text. Users interact with the typing test by using the vinyl record controls — **play**, **pause**, **skip forward/backward**, and other buttons — to select characters.
+It highlights the absurdity of using a vinyl record interface to type text. Users interact with the typing test by using the vinyl record controls like **play**, **pause**, **skip forward/backward**, and other buttons to select characters.
 
-When the user presses **play**, a song begins and characters are displayed in sequence as the music plays. Users watch the characters and, when they see the one they want, they press **record** to send it to the typing test component. Characters can be **lowercase letters**, **uppercase letters**, or **punctuation**, and the user can cycle through **three different tracks**, each corresponding to a type of character. This component turns a simple typing interaction into a quirky, musical, and humorously inefficient experience, while still connecting with the larger typing test system.
+When the user presses **play**, a song begins and characters are displayed in sequence as the music plays. Users watch the characters and, when they see the one they want, they press **record** to send it to the typing test component. Characters can be **lowercase letters**, **uppercase letters**, or **punctuation**, and the user can cycle through **three different tracks**, each corresponding to a type of character. 
 
 
 ## __User Interface__
 ### Components
-- Intro
-- Buttons
-- Record
-- Letter chip
-- Overall Pic
+Starting Page
+![image](./assets/images/audio_input/intro.png)
+Initial Setup
+![image](./assets/images/audio_input/setup.png) <br>
+Buttons<br>
+![image](./assets/images/audio_input/buttons.png)<br>
+Letter Pill<br>
+![image](./assets/images/audio_input/letter.png)
 
 ### Styling
 
@@ -24,18 +27,30 @@ When the user presses **play**, a song begins and characters are displayed in se
 ---
 ### Detailed Flow
 
-- User clicks a button on the record → triggers a play, pause, or skip action.  
+- User clicks the play button → triggers vinyl to spin, characters to cycle
 - Letter spinner updates asynchronously → new letter is displayed in the UI.  
-- `select_char()` fires when the record button is pressed → sends the current string of typed characters to the Typing Test Component via `TextUpdateCallback`.  
+- `select_char()` fires when the record button is pressed → sends the current string of typed characters with the new character to the Typing Test Component via `TextUpdateCallback`.  
 - Typing Test Component updates the sentence display → shows which letters were typed correctly or incorrectly and tracks the user's position in the sentence.  
 - WPM/WPH is calculated only after the user reaches the end of the sentence with correct typing.  
 - UI updates → record animation and letter chip continue spinning, creating the “wrong tool for the job” experience.
 ---
-## __Code__
+## __Demo__
+Button Usage
+![type:gif](./assets/images/audio_input/button_usage.gif)
 
-<!-- ##### Core Libraries & Classes
+Complete a Sentence
+![type:gif](./assets/images/audio_input/completed.gif)
 
-This component uses a combination of a main framework, utility libraries, and interface classes. Below is a breakdown of the most important parts. -->
+Sound Effects - __Press Play!__
+![type:video](./assets/images/audio_input/with_sound.mp4)
+> Unmute for best experience
+---
+
+## __Code__ 
+
+##### Core Libraries & Classes
+
+This component uses a combination of a main framework, utility libraries, and interface classes. Below is a breakdown of the most important parts.
 
 #####Main Framework
 
@@ -49,34 +64,8 @@ This component uses a combination of a main framework, utility libraries, and in
 
 - <em>`input_method_proto.IInputMethod` — the interface that this component implements to connect with the typing test module.
 - <em>`TextUpdateCallback` — a function passed from the typing test module that allows this component to send selected characters back to the tester.
-     
-        def on_text_update(self, callback: TextUpdateCallback) -> None:
-            """Register a callback to be called whenever the text updates."""
-
-            Args:
-                callback (TextUpdateCallback): Function called with updated text.
-
-            
-            self._text_update_callback = callback
-
-
-
+         
 ---
-
-### AudioEditor Component
-
-Main class for the “typing DJ” component that renders a spinning vinyl record and character spinner.  
-
-It interfaces with the typing test via `TextUpdateCallback` and manages the current character set including uppercase, lowercase, and punctuation.  
-
-The component handles audio playback for the main track, rewind, and fast-forward, while controlling spinning speed and direction with asyncio tasks.  
-
-It updates UI elements in real time, uses `ColorStyle` for consistent styling, and implements the `on_text_update` callback to communicate selected characters to the typing test.
-
----
-
-
-> Additional advice to aid users in achieving better outcomes.
 
 ##More In Depth
 
@@ -130,18 +119,7 @@ classDiagram
 ```
 
 
-
-### Theme - Wrong Tool For The Job
-
-- The `AudioEditorComponent` gets the job done, but it's the wrong tool for the task.  
-- Using record buttons for single-character selection is deliberately overkill.  
-- Audio feedback and animations create a multi-tasking, interactive environment.  
-- Despite this, the component is fully functional and integrates cleanly with the Typing Test Component via callbacks and modular imports.
-
-
-<!-- ![Alt text](./assets/images/audio_input/demo_image.png) -->
-
-
+Logic Flow
 ```mermaid
 graph LR
   A[Start] --> B{Play/Pause Pressed?};
