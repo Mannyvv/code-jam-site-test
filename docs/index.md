@@ -37,7 +37,7 @@ Everyone - Laid out the idea and implementation.
 
 [Kam](https://github.com/afx8732) - Input View, Input Method Protocol, WPM Testing Functionality, and Platformer Input Method
 
-[GigaGon](https://github.com/MeGaGiGaGon) - WASD keyboard input method, project setup, input method configuration
+[GigaGon](https://github.com/MeGaGiGaGon) - WASD Keyboard Input Method, Project Setup, Input Method Configuration
 
 [Skye](https://github.com/enskyeing) - User interface and general web design
 
