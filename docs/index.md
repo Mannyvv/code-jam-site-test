@@ -1,5 +1,5 @@
 # Home
-![image](./assets/wordmark-logo.png){: style="width: 600px;"}
+![image](./assets/wordmark-logo.png){ style="max-width:80%;height:auto;"}
 
 ## What is Dynamic Typing?
 
