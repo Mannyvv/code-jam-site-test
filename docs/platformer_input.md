@@ -1,10 +1,15 @@
 # The platformer input method
 
+Basically, it's a platformer game. You jump around on the platforms to
+access letters to type.  
+This fits the theme of "wrong tool for the job" because it's an
+absolutely abhorrent way to type, and additionally it uses emojis as
+tiles just to make it even more torturous.
+
 ## How to use it
 
-Basically, it's a platformer game. You jump around on the platforms. To
-type a letter, jump and bump your head on one of the letter tiles -- it
-will input the letter. Note that every time you jump, it inverts the
+To type a letter, jump and bump your head on one of the letter tiles --
+it will input the letter. Note that every time you jump, it inverts the
 capitalization of the next letter.
 
 ![type:video](assets/platformer-tutorial.mp4)
