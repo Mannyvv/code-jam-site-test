@@ -38,7 +38,6 @@ theme:
     - navigation.footer
     - navigation.indexes
     - navigation.sections
-    - content.code.copy
 
 markdown_extensions:
   - pymdownx.highlight:
