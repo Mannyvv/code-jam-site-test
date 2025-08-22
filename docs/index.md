@@ -33,7 +33,7 @@ $ py src/main.py
 ## Contributions
 Everyone - Laid out the idea and implementation.
 
-[Manny](https://github.com/Mannyvv) - Team leader, audio input method
+[Manny](https://github.com/Mannyvv) - Team leader, Audio Input Method
 
 [Kam](https://github.com/afx8732) - Input view, input method protocol, wpm testing functionality and platformer input method
 
