@@ -1,6 +1,5 @@
 # Home
-
-### \[Insert Logo Here\]
+![image](./assets/wordmark-logo.png){: style="width: 600px;"}
 
 ## What is Dynamic Typing?
 
