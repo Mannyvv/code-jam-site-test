@@ -19,6 +19,8 @@ plugins:
   - mkdocs-video:
       is_video: True
       video_muted: True
+  - search
+    
 
 theme:
   icon:
@@ -62,3 +64,4 @@ markdown_extensions:
           - name: mermaid
             class: mermaid
             format: !!python/name:pymdownx.superfences.fence_code_format
+  - attr_list
