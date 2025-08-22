@@ -19,6 +19,8 @@ plugins:
   - mkdocs-video:
       is_video: True
       video_muted: True
+  - search
+    
 
 theme:
   icon:

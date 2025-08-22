@@ -145,6 +145,3 @@ graph LR
   J -->|Yes| C;
   J -->|No| K[Finish Typing Session];
 ```
-
-
-#Demo
