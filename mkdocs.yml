@@ -12,7 +12,7 @@ nav:
     - Home: index.md
     - WASD Input: keyboard_input.md
     - Platformer: platformer_input.md
-    - color_mixer_input: color_mixer_input.md
+    - Color Picker: color_mixer_input.md
     - DJ Keyboard: audio_style_input.md
 
 plugins:
