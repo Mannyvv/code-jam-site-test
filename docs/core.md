@@ -1,5 +1,5 @@
 # Core
-To bring everything together, we have multiple front-end components that work together to seamlessly work with each input method.
+To bring everything together, we have multiple front-end components that allow each input method to work with the front end seamlessly.
 
 ## WPM Testing Page
 The Words Per Minute (WPM) testing page is initialized in `wpm_testing.py`. This creates a general user interface frame that the input view and the input method are injected into and displayed.
